@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -10,8 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg-1: #0f172a; /* deep navy */
-      --bg-2: #081126; /* darker */
+      --bg-1: #0f172a;
+      --bg-2: #081126;
       --card: rgba(255,255,255,0.04);
       --glass: rgba(255,255,255,0.06);
       --accent: linear-gradient(90deg,#7c3aed,#06b6d4);
@@ -31,37 +30,25 @@
     header{display:flex;align-items:center;gap:16px;margin-bottom:6px}
     .logo{width:58px;height:58px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#06b6d4,#7c3aed);box-shadow:0 6px 30px rgba(12,10,20,0.6);font-weight:800}
     h1{font-size:20px;margin:0}
-    p.lead{margin:4px 0 18px;color:var(--muted);font-size:13px}/* Card */
-.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));backdrop-filter: blur(6px);border:1px solid var(--glass-border);padding:18px;border-radius:var(--radius)}
-
-/* Form */
-.form-row{display:flex;gap:12px;align-items:center}
-input[type=text], select{flex:1;padding:10px 12px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.03);color:inherit;outline:none}
-input::placeholder{color:rgba(230,238,246,0.45)}
-button.primary{background:var(--accent);border:none;padding:10px 14px;border-radius:10px;color:#fff;font-weight:600;cursor:pointer;box-shadow:0 8px 24px rgba(12,10,20,0.5)}
-button.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:10px;color:var(--muted);cursor:pointer}
-
-/* Right column */
-.meta{display:flex;flex-direction:column;gap:12px}
-.status-badge{display:inline-block;padding:8px 10px;border-radius:999px;background:linear-gradient(90deg,#052e2f,#0f2b4a);font-weight:600}
-
-/* Output area */
-.output{margin-top:12px;display:flex;flex-direction:column;gap:8px}
-.tabs{display:flex;gap:8px}
-.tab{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,0.02);cursor:pointer;font-weight:600;font-size:13px}
-.tab.active{background:var(--accent);color:#081226}
-pre.response{background:rgba(0,0,0,0.45);padding:14px;border-radius:12px;overflow:auto;max-height:56vh}
-
-footer.small{font-size:12px;color:var(--muted);margin-top:10px}
-
-/* utilities */
-.row{display:flex;gap:10px}
-.muted{color:var(--muted)}
-.controls{display:flex;gap:8px;align-items:center}
-
-/* responsive */
-@media (max-width:980px){.wrap{grid-template-columns:1fr;}.meta{order:2}}
-
+    p.lead{margin:4px 0 18px;color:var(--muted);font-size:13px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));backdrop-filter: blur(6px);border:1px solid var(--glass-border);padding:18px;border-radius:var(--radius)}
+    .form-row{display:flex;gap:12px;align-items:center}
+    input[type=text], select{flex:1;padding:10px 12px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.03);color:inherit;outline:none}
+    input::placeholder{color:rgba(230,238,246,0.45)}
+    button.primary{background:var(--accent);border:none;padding:10px 14px;border-radius:10px;color:#fff;font-weight:600;cursor:pointer;box-shadow:0 8px 24px rgba(12,10,20,0.5)}
+    button.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:10px;color:var(--muted);cursor:pointer}
+    .meta{display:flex;flex-direction:column;gap:12px}
+    .status-badge{display:inline-block;padding:8px 10px;border-radius:999px;background:linear-gradient(90deg,#052e2f,#0f2b4a);font-weight:600}
+    .output{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+    .tabs{display:flex;gap:8px}
+    .tab{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,0.02);cursor:pointer;font-weight:600;font-size:13px}
+    .tab.active{background:var(--accent);color:#081226}
+    pre.response{background:rgba(0,0,0,0.45);padding:14px;border-radius:12px;overflow:auto;max-height:56vh}
+    footer.small{font-size:12px;color:var(--muted);margin-top:10px}
+    .row{display:flex;gap:10px}
+    .muted{color:var(--muted)}
+    .controls{display:flex;gap:8px;align-items:center}
+    @media (max-width:980px){.wrap{grid-template-columns:1fr;}.meta{order:2}}
   </style>
 </head>
 <body>
@@ -71,106 +58,110 @@ footer.small{font-size:12px;color:var(--muted);margin-top:10px}
         <div class="logo">PX</div>
         <div>
           <h1>Polished Proxy UI</h1>
-          <p class="lead">Simple, fast proxy requests — host this file on GitHub Pages and point it at your Cloudflare Worker URL.
-          </p>
+          <p class="lead">Type any URL below — the Worker will fetch it (blocked sites are filtered).</p>
         </div>
-      </header><section class="card">
-    <div style="display:flex;gap:12px;align-items:center;margin-bottom:12px;justify-content:space-between">
-      <div class="muted">Enter the target URL you want the Worker to fetch for you.</div>
-      <div class="controls">
-        <button class="ghost" id="exampleBtn">Example</button>
-        <button class="ghost" id="clearBtn">Clear</button>
+      </header>
+
+      <section class="card">
+        <div style="display:flex;gap:12px;align-items:center;margin-bottom:12px;justify-content:space-between">
+          <div class="muted">Enter the target URL you want the Worker to fetch for you.</div>
+          <div class="controls">
+            <button class="ghost" id="exampleBtn">Example</button>
+            <button class="ghost" id="clearBtn">Clear</button>
+          </div>
+        </div>
+
+        <div class="form-row" style="margin-bottom:12px">
+          <input id="urlInput" type="text" placeholder="https://example.com/path" spellcheck="false">
+          <button class="primary" id="fetchBtn">Fetch</button>
+        </div>
+
+        <div style="display:flex;gap:12px;align-items:center;margin-bottom:10px">
+          <select id="method" style="width:130px">
+            <option>GET</option>
+            <option>POST</option>
+            <option>HEAD</option>
+          </select>
+          <input id="bodyInput" type="text" placeholder="Request body (JSON) — only for POST/PUT"/>
+          <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="prettyJson" checked/> Pretty JSON</label>
+        </div>
+
+        <div class="output">
+          <div class="tabs" role="tablist">
+            <div class="tab active" data-tab="raw">Raw</div>
+            <div class="tab" data-tab="headers">Headers</div>
+            <div class="tab" data-tab="preview">Preview</div>
+          </div>
+
+          <div id="metaArea" style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+            <div><span class="muted">Status:</span> <span id="statusTag" class="status-badge">idle</span></div>
+            <div class="row"><button class="ghost" id="copyBtn">Copy</button><button class="ghost" id="downloadBtn">Download</button></div>
+          </div>
+
+          <pre id="outputRaw" class="response" style="display:block">No response yet — click Fetch.</pre>
+          <pre id="outputHeaders" class="response" style="display:none"></pre>
+          <iframe id="previewFrame" style="display:none;width:100%;height:420px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);background:white"></iframe>
+        </div>
+
+        <footer class="small muted">Worker URL is prefilled on the right — you can Save it to local storage.</footer>
+      </section>
+
+      <section style="margin-top:18px">
+        <div class="card">
+          <h3 style="margin:0 0 8px 0">Quick tips</h3>
+          <ul style="margin:0;padding-left:18px;color:var(--muted)">
+            <li>Worker filters adult/illegal content server-side. This UI only sends requests to the Worker.</li>
+            <li>If a site is blocked, try a different URL or contact the admin to update blocklist.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <aside class="meta">
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <div class="muted">Worker URL</div>
+            <div style="margin-top:6px">
+              <input id="workerUrl" type="text" placeholder="https://your-worker-subdomain.workers.dev/fetch" style="width:100%;padding:8px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.03)"/>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:10px;display:flex;gap:8px">
+          <button class="primary" id="saveWorker">Save</button>
+          <button class="ghost" id="testWorker">Test</button>
+        </div>
+        <div style="margin-top:10px;color:var(--muted);font-size:13px">Saved URL is stored locally in your browser (no server).</div>
       </div>
-    </div>
 
-    <div class="form-row" style="margin-bottom:12px">
-      <input id="urlInput" type="text" placeholder="https://api.example.com/endpoint?param=1" spellcheck="false">
-      <button class="primary" id="fetchBtn">Fetch</button>
-    </div>
-
-    <div style="display:flex;gap:12px;align-items:center;margin-bottom:10px">
-      <select id="method" style="width:130px">
-        <option>GET</option>
-        <option>POST</option>
-        <option>HEAD</option>
-      </select>
-      <input id="bodyInput" type="text" placeholder="Request body (JSON) — only for POST/PUT"/>
-      <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="prettyJson" checked/> Pretty JSON</label>
-    </div>
-
-    <div class="output">
-      <div class="tabs" role="tablist">
-        <div class="tab active" data-tab="raw">Raw</div>
-        <div class="tab" data-tab="headers">Headers</div>
-        <div class="tab" data-tab="preview">Preview</div>
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <div class="muted">Caveats</div>
+            <div style="margin-top:6px;color:var(--muted);font-size:13px">This UI only calls your Worker — the Worker must implement filtering as configured.</div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-weight:700">Free stack</div>
+            <div class="muted" style="font-size:13px">GitHub Pages + Cloudflare Workers</div>
+          </div>
+        </div>
       </div>
-
-      <div id="metaArea" style="display:flex;justify-content:space-between;align-items:center;gap:12px">
-        <div><span class="muted">Status:</span> <span id="statusTag" class="status-badge">idle</span></div>
-        <div class="row"><button class="ghost" id="copyBtn">Copy</button><button class="ghost" id="downloadBtn">Download</button></div>
-      </div>
-
-      <pre id="outputRaw" class="response" style="display:block">No response yet — click Fetch.</pre>
-      <pre id="outputHeaders" class="response" style="display:none"></pre>
-      <iframe id="previewFrame" style="display:none;width:100%;height:420px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);background:white"></iframe>
-    </div>
-
-    <footer class="small muted">Remember: replace <code>WORKER_URL</code> in the script with your Worker endpoint. This UI is static and safe to host on GitHub Pages.</footer>
-  </section>
-
-  <section style="margin-top:18px">
-    <div class="card">
-      <h3 style="margin:0 0 8px 0">Quick tips</h3>
-      <ul style="margin:0;padding-left:18px;color:var(--muted)">
-        <li>Use an allowlist on the Worker to avoid an open proxy.</li>
-        <li>GitHub Pages hosts this file for free — pair it with Cloudflare Workers (free tier).</li>
-        <li>Don't proxy private credentials or cookies unless you control the upstream.</li>
-      </ul>
-    </div>
-  </section>
-</main>
-
-<aside class="meta">
-  <div class="card">
-    <div style="display:flex;justify-content:space-between;align-items:center">
-      <div>
-        <div class="muted">Worker URL</div>
-        <div style="margin-top:6px"><input id="workerUrl" type="text" placeholder="https://your-worker-subdomain.workers.dev/fetch" style="width:100%;padding:8px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.03)"/></div>
-      </div>
-    </div>
-    <div style="margin-top:10px;display:flex;gap:8px">
-      <button class="primary" id="saveWorker">Save</button>
-      <button class="ghost" id="testWorker">Test</button>
-    </div>
-    <div style="margin-top:10px;color:var(--muted);font-size:13px">Saved URL is stored locally in your browser (no server).</div>
+    </aside>
   </div>
 
-  <div class="card">
-    <div style="display:flex;justify-content:space-between;align-items:center">
-      <div>
-        <div class="muted">Caveats</div>
-        <div style="margin-top:6px;color:var(--muted);font-size:13px">This UI only calls your Worker — the Worker must implement allowlist / CORS as needed.</div>
-      </div>
-      <div style="text-align:right">
-        <div style="font-weight:700">Free stack</div>
-        <div class="muted" style="font-size:13px">GitHub Pages + Cloudflare Workers</div>
-      </div>
-    </div>
-  </div>
-</aside>
-
-  </div>  <script>
-    // --- small UX helpers ---
+  <script>
+    // --- tiny UX + Worker wiring ---
     const outputRaw = document.getElementById('outputRaw')
     const outputHeaders = document.getElementById('outputHeaders')
     const previewFrame = document.getElementById('previewFrame')
     const statusTag = document.getElementById('statusTag')
     const workerInput = document.getElementById('workerUrl')
 
-    // load saved worker url
+    // PREFILL the Worker URL you gave:
+    const DEFAULT_WORKER = 'https://proxytest.melol739173.workers.dev'
     const SAVED_KEY = 'px_worker_url_v1'
     const saved = localStorage.getItem(SAVED_KEY)
-    if (saved) workerInput.value = saved
+    workerInput.value = saved || DEFAULT_WORKER
 
     document.getElementById('saveWorker').onclick = () => {
       localStorage.setItem(SAVED_KEY, workerInput.value.trim())
@@ -193,19 +184,18 @@ footer.small{font-size:12px;color:var(--muted);margin-top:10px}
 
     function status(t){ statusTag.textContent = t }
 
-    document.getElementById('exampleBtn').onclick = ()=>{
+    document.getElementById('exampleBtn').onclick = ()=> {
       document.getElementById('urlInput').value = 'https://jsonplaceholder.typicode.com/todos/1'
       document.getElementById('method').value = 'GET'
     }
-    document.getElementById('clearBtn').onclick = ()=>{
+    document.getElementById('clearBtn').onclick = ()=> {
       document.getElementById('urlInput').value = ''
       outputRaw.textContent = 'No response yet — click Fetch.'
       outputHeaders.textContent = ''
       previewFrame.style.display = 'none'
     }
 
-    // tabs
-    document.querySelectorAll('.tab').forEach(t=> t.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab').forEach(t=> t.addEventListener('click', ()=> {
       document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'))
       t.classList.add('active')
       const tab = t.dataset.tab
@@ -214,13 +204,13 @@ footer.small{font-size:12px;color:var(--muted);margin-top:10px}
       previewFrame.style.display = (tab==='preview')? 'block':'none'
     }))
 
-    document.getElementById('copyBtn').onclick = async ()=>{
+    document.getElementById('copyBtn').onclick = async ()=> {
       try{ await navigator.clipboard.writeText(currentRaw || '')
         alert('Copied response to clipboard')
       }catch(e){ alert('Copy failed: ' + e.message) }
     }
 
-    document.getElementById('downloadBtn').onclick = ()=>{
+    document.getElementById('downloadBtn').onclick = ()=> {
       const data = currentRaw || ''
       const blob = new Blob([data], {type:'text/plain'})
       const url = URL.createObjectURL(blob)
@@ -230,7 +220,7 @@ footer.small{font-size:12px;color:var(--muted);margin-top:10px}
 
     let currentRaw = ''
 
-    document.getElementById('fetchBtn').onclick = async ()=>{
+    document.getElementById('fetchBtn').onclick = async ()=> {
       const workerUrl = (localStorage.getItem(SAVED_KEY) || '').trim() || workerInput.value.trim()
       if (!workerUrl) return alert('Please set your Worker URL in the right column and Save it (or paste it here).')
       const target = document.getElementById('urlInput').value.trim()
@@ -246,38 +236,30 @@ footer.small{font-size:12px;color:var(--muted);margin-top:10px}
       previewFrame.style.display = 'none'
 
       try{
-        const url = new URL(workerUrl)
-        // ensure workerUrl doesn't include existing query param named url
+        // Ensure single "url=" query param appended
         const fetchUrl = workerUrl + (workerUrl.includes('?')? '&' : '?') + 'url=' + encodeURIComponent(target)
         const opts = { method }
         if (method !== 'GET' && method !== 'HEAD' && body) {
-          // try parse as JSON
-          try{ opts.body = body; opts.headers = {'Content-Type': 'application/json'} }catch(e){ opts.body = body }
+          opts.body = body; opts.headers = {'Content-Type': 'application/json'}
         }
         const res = await fetch(fetchUrl, opts)
-        const ct = res.headers.get('content-type') || ''
-        const raw = await res.text()
-        currentRaw = raw
+        const text = await res.text()
+        currentRaw = text
 
-        // show headers
         const headersArr = []
         res.headers.forEach((v,k)=> headersArr.push(k+': '+v))
-        outputHeaders.textContent = headersArr.join('\n')
+        outputHeaders.textContent = headersArr.join('\\n')
 
-        // pretty JSON if requested
+        const ct = res.headers.get('content-type') || ''
         if (prettyJson && ct.includes('application/json')){
-          try{
-            outputRaw.textContent = JSON.stringify(JSON.parse(raw), null, 2)
-          }catch(e){ outputRaw.textContent = raw }
+          try{ outputRaw.textContent = JSON.stringify(JSON.parse(text), null, 2) }catch(e){ outputRaw.textContent = text }
         } else {
-          outputRaw.textContent = raw
+          outputRaw.textContent = text
         }
 
-        // preview for HTML
-        if (ct.includes('text/html')){
+        if (ct.includes('text/html')) {
           previewFrame.style.display = 'block'
-          // set srcdoc so content is sandboxed
-          previewFrame.srcdoc = raw
+          previewFrame.srcdoc = text
         } else {
           previewFrame.style.display = 'none'
         }
@@ -289,5 +271,6 @@ footer.small{font-size:12px;color:var(--muted);margin-top:10px}
       }
     }
 
-  </script></body>
+  </script>
+</body>
 </html>
